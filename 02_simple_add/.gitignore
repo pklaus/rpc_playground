@@ -1,0 +1,9 @@
+Makefile.add
+add.h
+add_client
+add_client.o
+add_clnt.o
+add_server
+add_server.o
+add_svc.o
+add_xdr.o
