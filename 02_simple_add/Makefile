@@ -1,9 +1,5 @@
 
-.PHONY: rpcgen
-rpcgen:
-	rpcgen -a -C add.x
-
-all: rpcgen
+all:
 	gcc -I/usr/include/tirpc -ltirpc -g -DRPC_SVC_FG -c -o add_clnt.o add_clnt.c
 	gcc -I/usr/include/tirpc -ltirpc -g -DRPC_SVC_FG -c -o add_client.o add_client.c
 	gcc -I/usr/include/tirpc -ltirpc -g -DRPC_SVC_FG -c -o add_xdr.o add_xdr.c
@@ -11,6 +7,10 @@ all: rpcgen
 	gcc -I/usr/include/tirpc -ltirpc -g -DRPC_SVC_FG -c -o add_svc.o add_svc.c
 	gcc -I/usr/include/tirpc -ltirpc -g -DRPC_SVC_FG -c -o add_server.o add_server.c
 	gcc -I/usr/include/tirpc -ltirpc -g -DRPC_SVC_FG -o add_server add_svc.o add_server.o add_xdr.o
+
+.PHONY: rpcgen
+rpcgen:
+	rpcgen -a -C add.x
 
 .PHONY: clean
 clean:
